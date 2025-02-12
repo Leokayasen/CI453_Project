@@ -1,7 +1,7 @@
 package com.atm;
 
 
-// Bank class - simple implementation of a bank, with a list of bank accounts, an
+// Bank class - simple implementation of a bank, with a list of bank accounts,
 // a current account that we are logged in to.
 
 // This class contains one method ('login') which you need to complete as part of
@@ -16,7 +16,7 @@ public class Bank
     int maxAccounts = 10;       // maximum number of accounts the bank can hold
     int numAccounts = 0;        // the number of accounts currently in the bank
     BankAccount[] accounts = new BankAccount[maxAccounts];  // array to hold the bank accounts
-    BankAccount account = null; // currently logged in acccount ('null' if no-one is logged in)
+    BankAccount account = null; // currently logged in account ('null' if no-one is logged in)
 
     // Constructor method - this provides a couple of example bank accounts to work with
     public Bank()
