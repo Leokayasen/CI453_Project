@@ -14,17 +14,19 @@ public class BankAccount
     public int accNumber = 0;
     public int accPasswd = 0;
     public int balance = 0;
+    public int overdraft = 0;
 
     public BankAccount()
-    { // an empty construtor
+    { // an empty constructor
 
     }
 
-    public BankAccount(int n, int p, int b)
+    public BankAccount(int n, int p, int b, int o)
     {
         accNumber = n;
         accPasswd = p;
         balance = b;
+        overdraft = o;
     }
 
     // withdraw money from the account. Return true if successful, or
@@ -32,12 +34,25 @@ public class BankAccount
     public boolean withdraw( int amount )
     {
         Debug.trace( "BankAccount::withdraw: amount =" + amount );
-        if (balance - amount >= 0){
-            balance -= amount;
-            return true;
+        int newAmount = balance - amount;
+        if (newAmount < 0) {
+            if (overdraft + newAmount < -1000) {
+                Debug.trace("Overdraft too low to withdraw");
+                return false;
+            }
+            else if (balance >= 0) {
+                overdraft += newAmount;
+                balance -= amount;
+                return true;
+            } else {
+                overdraft -= amount;
+                balance -= amount;
+                return true;
+            }
         }
         else {
-            return false;
+            balance = newAmount;
+            return true;
         }
     }
 
@@ -46,8 +61,15 @@ public class BankAccount
     public boolean deposit( int amount )
     {
         Debug.trace( "LocalBank::deposit: amount = " + amount );
-        // CHANGE CODE HERE TO DEPOSIT MONEY INTO THE ACCOUNT
+        int newAmount = overdraft + amount;
+        if (newAmount >= 1000) {
+            overdraft = 1000;
+        } else {
+            overdraft = overdraft + amount;
+        }
         balance = balance + amount;
+
+
         return false;
     }
 
@@ -55,8 +77,13 @@ public class BankAccount
     public int getBalance()
     {
         Debug.trace( "LocalBank::getBalance" );
-        // CHANGE CODE HERE TO RETURN THE BALANCE
         return balance;
+    }
+
+    public int getOverdraft()
+    {
+        Debug.trace( "LocalBank::getOverdraft" );
+        return overdraft;
     }
 }
 

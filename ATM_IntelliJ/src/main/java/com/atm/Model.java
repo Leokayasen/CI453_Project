@@ -22,6 +22,7 @@ public class Model
     Bank  bank = null;              // The ATM talks to a bank, represented by the Bank object.
     int accNumber = -1;             // Account number typed in
     int accPasswd = -1;             // Password typed in
+
     // These three are what are shown on the View display
     String title = "Bank ATM";      // The contents of the title message
     String display1 = null;         // The contents of the Message 1 box (a single line)
@@ -71,9 +72,13 @@ public class Model
         // and update the number variable with it
         char c = label.charAt(0);
         number = number * 10 + c-'0';           // Build number
+        if (number > 999999999) {
+            display2 = "you cannot enter a number this big";
+            number = 0;
+        }
         // show the new number in the display
         display1 = "" + number;
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // process the Clear button - reset the number (and number display string)
@@ -82,7 +87,7 @@ public class Model
         // clear the number stored in the model
         number = 0;
         display1 = "";
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // process the Enter button
@@ -129,7 +134,7 @@ public class Model
             default:
                 // do nothing in any other state (ie logged in)
         }
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // Withdraw button - check we are logged in and if so try and withdraw some money from
@@ -148,7 +153,7 @@ public class Model
         } else {
             initialise("You are not logged in");
         }
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // Deposit button - check we are logged in and if so try and deposit some money into
@@ -163,7 +168,7 @@ public class Model
         } else {
             initialise("You are not logged in");
         }
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // Balance button - check we are logged in and if so access the current balance
@@ -172,11 +177,13 @@ public class Model
     {
         if (state.equals(LOGGED_IN) ) {
             number = 0;
-            display2 = "Your balance is: " + bank.getBalance();
+            display1 = "";
+            display2 = "Your balance is: " + bank.account.getBalance() +
+                    "\n Your overdraft is: " + bank.account.getOverdraft();
         } else {
             initialise("You are not logged in");
         }
-        display();  // update the GUI
+        view.update();  // update the GUI
     }
 
     // Finish button - check we are logged in and if so log out
@@ -191,7 +198,7 @@ public class Model
         } else {
             initialise("You are not logged in");
         }
-        display();  // update the GUI
+        view.update(); // Update Gui
     }
 
     // Any other key results in an error message and a reset of the GUI
@@ -201,14 +208,6 @@ public class Model
         Debug.trace("Model::processUnknownKey: unknown button \"" + action + "\", re-initialising");
         // go back to initial state
         initialise("Invalid command");
-        display();
-    }
-
-    // This is where the Model talks to the View, by calling the View's update method
-    // The view will call back to the model to get new information to display on the screen
-    public void display()
-    {
-        Debug.trace("Model::display");
         view.update();
     }
 }

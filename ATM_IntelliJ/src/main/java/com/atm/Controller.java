@@ -3,7 +3,7 @@ package com.atm;
 
 // The ATM controller is quite simple - the process method is passed
 // the label on the button that was pressed, and it calls different
-// methods in the model depending what was pressed.
+// methods in the model depending on what was pressed.
 public class Controller
 {
     public Model model;
@@ -35,16 +35,16 @@ public class Controller
             case "Ent":
                 model.processEnter();
                 break;
-            case "W/D":
+            case "Withdraw":
                 model.processWithdraw();
                 break;
-            case "Dep":
+            case "Deposit":
                 model.processDeposit();
                 break;
-            case "Bal":
+            case "Balance":
                 model.processBalance();
                 break;
-            case "Fin":
+            case "Finish":
                 model.processFinish();
                 break;
             default:

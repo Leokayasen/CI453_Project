@@ -23,14 +23,13 @@ public class Bank
     {
         Debug.trace( "Bank::<constructor>");
 
-
     }
 
     // a method to create new BankAccounts - this is known as a 'factory method' and is a more
     // flexible way to do it than just using the 'new' keyword directly.
-    public BankAccount makeBankAccount(int accNumber, int accPasswd, int balance)
+    public BankAccount makeBankAccount(int accNumber, int accPasswd, int balance, int overdraft)
     {
-        return new BankAccount(accNumber, accPasswd, balance);
+        return new BankAccount(accNumber, accPasswd, balance, overdraft);
     }
 
     // a method to add a new bank account to the bank - it returns true if it succeeds
@@ -52,9 +51,9 @@ public class Bank
     // a variant of addBankAccount which makes the account and adds it all in one go.
     // Using the same name for this method is called 'method overloading' - two methods
     // can have the same name if they take different argument combinations
-    public boolean addBankAccount(int accNumber, int accPasswd, int balance)
+    public boolean addBankAccount(int accNumber, int accPasswd, int balance, int overdraft)
     {
-        return addBankAccount(makeBankAccount(accNumber, accPasswd, balance));
+        return addBankAccount(makeBankAccount(accNumber, accPasswd, balance, overdraft));
     }
 
     // Check whether the current saved account and password correspond to
@@ -131,17 +130,6 @@ public class Bank
             return account.withdraw(amount);
         } else {
             return false;
-        }
-    }
-
-    // get the account balance (by calling the balance method on the
-    // BankAccount object)
-    public int getBalance()
-    {
-        if (loggedIn()) {
-            return account.getBalance();
-        } else {
-            return -1; // use -1 as an indicator of an error
         }
     }
 }

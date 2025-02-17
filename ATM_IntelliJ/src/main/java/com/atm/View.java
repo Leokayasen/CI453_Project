@@ -5,8 +5,6 @@ package com.atm;
 // the current state of the Model, (title, output1 and output2),
 // and handles user input from the buttons and handles user input
 
-// We import lots of JavaFX libraries (we may not use them all, but it
-// saves us having to thinkabout them if we add new code)
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,8 +15,8 @@ import javafx.util.*;
 
 class View
 {
-    int H = 420;         // Height of window pixels
-    int W = 500;         // Width  of window pixels
+    int H = 450;         // Height of window pixels
+    int W = 520;         // Width  of window pixels
 
     // variables for components of the user interface
     Label      title;         // Title area (not the window title)
@@ -79,17 +77,17 @@ class View
         // The number of button per row should match what is set in
         // the css file
         String labels[][] = {
-                {"7",    "8",  "9",  "",  "Dep",  ""},
-                {"4",    "5",  "6",  "",  "W/D",  ""},
-                {"1",    "2",  "3",  "",  "Bal",  "Fin"},
-                {"CLR",  "0",  "",   "",  "",     "Ent"} };
+                {"7",    "8",  "9",  "",  "Deposit",  ""},
+                {"4",    "5",  "6",  "",  "Withdraw",  ""},
+                {"1",    "2",  "3",  "",  "Balance",  "Finish"},
+                {"CLEAR",  "0",  "",   "",  "",     "Enter"} };
 
         // loop through the array, making a Button object for each label
         // (and an empty text label for each blank space) and adding them to the buttonPane
         // The number of button per row is set in the css file, not the array.
         for ( String[] row: labels ) {
             for (String label: row) {
-                if ( label.length() >= 1 ) {
+                if (!label.isEmpty()) {
                     // non-empty string - make a button
                     Button b = new Button( label );
                     b.setOnAction( this::buttonClicked ); // set the method to call when pressed
@@ -105,7 +103,7 @@ class View
 
         // add the complete GUI to the window and display it
         Scene scene = new Scene(grid, W, H);
-        scene.getStylesheets().add("atm.css"); // tell the app to use our css file
+        scene.getStylesheets().add("/atm.css"); // tell the app to use our css file
         window.setScene(scene);
         window.show();
     }
@@ -140,6 +138,7 @@ class View
             String message3 = model.display2;     // get the new message2 from the model
             reply.setText( message3 );            // add it as text of GUI control output2
         }
+        Debug.trace("View::update");
     }
 }
 
