@@ -5,4 +5,6 @@ This is for uploading unfinished class files or code snippets.
 
 May be useful to include code inspirations here too.
 
-As of 3/3/25 this branch has v0.6
+Latest build: `v0.7-beta`
+
+Last updated: `11/03/2025`
