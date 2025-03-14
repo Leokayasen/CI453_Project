@@ -8,3 +8,16 @@ May be useful to include code inspirations here too.
 Latest build: `v0.7-beta`
 
 Last updated: `11/03/2025`
+
+- - -
+### Languages used:
+[![Languages](https://skillicons.dev/icons?i=java,css&theme=light)](https://skillicons.dev)
+
+### VCS used:
+[![VCS](https://skillicons.dev/icons?i=git&theme=light)](https://skillicons.dev)
+
+### Database Framework used:
+[![Frameworks](https://skillicons.dev/icons?i=mysql&theme=light)](https://skillicons.dev)
+
+### Build and Compilation library used:
+[![Build](https://skillicons.dev/icons?i=maven&theme=light)](https://skillicons.dev)
