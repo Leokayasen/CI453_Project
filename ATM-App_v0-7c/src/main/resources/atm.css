@@ -1,0 +1,23 @@
+#Layout {
+    -fx-grid-lines-visible: false;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-padding: 10;
+}
+
+.text-area {
+    -fx-font: bold 10pt "courier new";
+    -fx-strikethrough: true;
+}
+
+
+#Buttons {
+    -fx-pref-columns: 5;
+    -fx-pref-tile-width: 132;
+    -fx-hgap: 3;
+    -fx-vgap: 3;
+}
+
+.button {
+    -fx-font: bold 16pt "courier new";
+}
