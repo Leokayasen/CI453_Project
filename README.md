@@ -1,23 +1,11 @@
-# CI453 - Project
-A repo for the CI453 Group Project
+# CI453 - ATM APP
 
-The `main` branch is for completed updates of the ATM app.
+## Current Version: v0.9-ALPHA
 
-The `in-dev` branch is for unfinished versions or classes.
-
-The `codebase-template` branch is for the UoB template.
-
-The `prototype` branch is for a concept model.
+You can find the full documentation and installation instructions at [ci453.atm.app](https://leokayasen.github.io/CI453_Project/)
 
 - - -
-### Languages used:
-[![Languages](https://skillicons.dev/icons?i=java,css&theme=light)](https://skillicons.dev)
 
-### VCS used:
-[![VCS](https://skillicons.dev/icons?i=git&theme=light)](https://skillicons.dev)
+_All files and releases for this project are protected by a standard LICENSE visible in the `main` branch._
 
-### Database Framework used:
-[![Frameworks](https://skillicons.dev/icons?i=mysql&theme=light)](https://skillicons.dev)
-
-### Build and Compilation library used:
-[![Build](https://skillicons.dev/icons?i=maven&theme=light)](https://skillicons.dev)
+_Any questions or concerns can be sent via the `Discussions` tab._
