@@ -8,4 +8,4 @@ You can find the full documentation and installation instructions at [ci453.atm.
 
 _All files and releases for this project are protected by a standard LICENSE visible in the `main` branch._
 
-_Any questions or concerns can be sent via the `Discussions` tab._
+_You can leave a comment by creating a "q&a" Issue._
