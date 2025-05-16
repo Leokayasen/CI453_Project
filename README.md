@@ -7,7 +7,9 @@ The `in-dev` branch is for unfinished versions or classes.
 
 The `codebase-template` branch is for the UoB template.
 
-The `prototype` branch is for a concept model.
+The `prototype` branch is for a concept model that was made before the project began.
+
+As of 16/05/2025 the latest version(s) is in the `v0.9` branch.
 
 - - -
 ### Languages used:
